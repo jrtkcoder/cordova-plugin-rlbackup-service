@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-rlbackup-service" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>RLMusicPlugin</name>
+	<js-module name="RLMusicPlugin" src="www/RLMusicPlugin.js">
+		<clobbers target="cordova.plugins.RLMusicPlugin" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="RLMusicPlugin">
+				<param name="android-package" value="com.renlianiot.music.RLMusicPlugin" />
+				<param name="onload" value="true" />
+			</feature>
+		</config-file>		
+		<config-file parent="/*" target="AndroidManifest.xml">
+			    <uses-permission android:name="android.permission.WAKE_LOCK" />
+		</config-file>
+
+		<config-file parent="/manifest/application" target="AndroidManifest.xml">
+			<service
+            android:name="com.renlianiot.music.PlayerMusicService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":music_service"
+            ></service>
+            <receiver android:name="com.renlianiot.music.NotificationClickReceiver">
+  			</receiver>
+		</config-file>
+		<source-file src="src/android/RLMusicPlugin.java" target-dir="src/com/renlianiot/music" />
+
+		<source-file src="src/android/PlayerMusicService.java" target-dir="src/com/renlianiot/music" />
+		<source-file src="src/android/MResource.java" target-dir="src/com/renlianiot/music" />
+		<source-file src="src/android/NotificationClickReceiver.java" target-dir="src/com/renlianiot/music" />
+		
+		<source-file src="src/res/raw/ding.mp3" target-dir="res/raw" />
+		<framework src="com.android.support:appcompat-v7:26.1.0" />
+	</platform>
+</plugin>

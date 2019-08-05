@@ -1,0 +1,21 @@
+{
+  "name": "cordova-plugin-rlbackup-service",
+  "version": "1.0.0",
+  "description": "alive",
+  "cordova": {
+    "id": "cordova-plugin-rlbackup-service",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+        "type": "git",
+        "url": "git+http://gogs.jrhost.cn:4000/zmcoding/cordova-plugin-rlbackup-service.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "rlian",
+  "license": "ISC"
+}
